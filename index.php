@@ -36,7 +36,7 @@ switch ($page) {
   case 'catalog':
     include 'catalog.php';
     break;
-  case 'single-item.php':
+  case 'single-item':
     include 'single-item.php';
     break;
 
