@@ -39,9 +39,36 @@
         <div class="row clearfix">
           <!-- элементы каталога -->
           <?php
-            for ($i = 0; $i < 18; $i++):
-              include '/templates/_shop-element.php';
-            endfor;
+            $source_csv = __DIR__ . "\\data\\products.csv";
+            $open_csv   = fopen($source_csv, 'r');
+            $get_csv    = fgetcsv($open_csv, 1000, ';' );
+            $products   = [];
+
+            var_dump($get_csv);
+
+            echo "<br><hr><hr><br>";
+
+            function readCSV($csvFile){
+              $file_handle = fopen($csvFile, 'r');
+              while (!feof($file_handle) ) {
+                $line_of_text[] = fgetcsv($file_handle, 1024);
+              }
+              fclose($file_handle);
+              return $line_of_text;
+            }
+
+
+            $csv = readCSV($source_csv);
+
+            foreach ($csv as $key) {
+              var_dump($key);
+              echo "<br><br><hr>";
+            }
+
+
+
+            fclose($open_csv);
+
           ?>
         </div>
       </div>

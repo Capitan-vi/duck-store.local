@@ -2,15 +2,16 @@
 
 header("Content-Type: text/html; charset=utf-8");
 
-$shop_elem_title       = $_GET['shop-elem-title'];
-$shop_elem_description = $_GET['shop-elem-description'];
-$shop_elem_price       = $_GET['shop-elem-price'];
-$shop_elem_image       = $_GET['shop-elem-image'];
+$shop_elem_title       = $_POST['shop-elem-title'];
+$shop_elem_description = $_POST['shop-elem-description'];
+$shop_elem_price       = $_POST['shop-elem-price'];
+$shop_elem_image       = $_POST['shop-elem-image'];
 
 $products_base = __DIR__ . "\\..\\data\\products.csv";
 $user_file = $_FILES['shop-elem-image']['name'];
-$upload_dir = '\\..\\data\\uploads\\';
+$upload_dir = __DIR__ . '\\..\\data\\uploads\\';
 $upload_file = $upload_dir.basename($user_file);
+// $new_elem_id = file(), fgetcsv(), fputcsv()
 
 $fp = fopen($products_base, "a");
 
