@@ -1,20 +1,9 @@
-<?php include_once __DIR__ . '/templates/_header.php' ?>
+<?php
+  include_once __DIR__ . '/templates/_header.php';
+  include_once __DIR__ . '/templates/_site-menu.php';
+  include_once __DIR__ . '/data/db_connect.php';
+?>
 
-<header>
-  <div class="container clearfix">
-    <!-- логотип -->
-    <a href="index.html" class="logo">Yellow Duck</a>
-    <!-- меню -->
-    <nav>
-      <ul>
-        <li><a href="">О Компании</a></li>
-        <li><a href="">Каталог</a></li>
-        <li><a href="">Доставка и оплата</a></li>
-        <li><a href="">Контакты</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
 <section>
 <div class="container">
   <div class="row clearfix">
@@ -37,37 +26,52 @@
           <p>Мини - утки</p>
         </div>
         <div class="row clearfix">
+
+          <?php foreach ($products as $item): ?>
+
+              <div class="item-block column column4">
+                <a href="single-item.html"
+                  class="item"
+                  title="<?php echo $item['title']; ?>">
+                  <img src="img/item.jpeg" alt="уточка">
+                </a>
+                <div><?php echo $item['title']; ?></div>
+                <a href="index.php?page=single-item&id=<?php echo $item['id']; ?>" class="btn-basket">В Корзину</a>
+              </div>
+
+          <?php endforeach; ?>
+
           <!-- элементы каталога -->
           <?php
-            $source_csv = __DIR__ . "\\data\\products.csv";
-            $open_csv   = fopen($source_csv, 'r');
-            $get_csv    = fgetcsv($open_csv, 1000, ';' );
-            $products   = [];
+            // $source_csv = __DIR__ . "\\data\\products.csv";
+            // $open_csv   = fopen($source_csv, 'r');
+            // $get_csv    = fgetcsv($open_csv, 1000, ';' );
+            // $products   = [];
 
-            var_dump($get_csv);
+            // var_dump($get_csv);
 
-            echo "<br><hr><hr><br>";
+            // echo "<br><hr><hr><br>";
 
-            function readCSV($csvFile){
-              $file_handle = fopen($csvFile, 'r');
-              while (!feof($file_handle) ) {
-                $line_of_text[] = fgetcsv($file_handle, 1024);
-              }
-              fclose($file_handle);
-              return $line_of_text;
-            }
-
-
-            $csv = readCSV($source_csv);
-
-            foreach ($csv as $key) {
-              var_dump($key);
-              echo "<br><br><hr>";
-            }
+            // function readCSV($csvFile){
+            //   $file_handle = fopen($csvFile, 'r');
+            //   while (!feof($file_handle) ) {
+            //     $line_of_text[] = fgetcsv($file_handle, 1024);
+            //   }
+            //   fclose($file_handle);
+            //   return $line_of_text;
+            // }
 
 
+            // $csv = readCSV($source_csv);
 
-            fclose($open_csv);
+            // foreach ($csv as $key) {
+            //   var_dump($key);
+            //   echo "<br><br><hr>";
+            // }
+
+
+
+            // fclose($open_csv);
 
           ?>
         </div>

@@ -1,20 +1,9 @@
-<?php include_once __DIR__ . '/templates/_header.php' ?>
+<?php
+  include_once __DIR__ . '/templates/_header.php';
+  include_once __DIR__ . '/templates/_site-menu.php';
+  include_once __DIR__ . '/data/db_connect.php';
+?>
 
-<header>
-	<div class="container clearfix">
-		<!-- логотип -->
-		<a href="index.html" class="logo">Yellow Duck</a>
-		<!-- меню -->
-		<nav>
-			<ul>
-				<li><a href="">О Компании</a></li>
-				<li><a href="">Каталог</a></li>
-				<li><a href="">Доставка и оплата</a></li>
-				<li><a href="">Контакты</a></li>
-			</ul>
-		</nav>
-	</div>
-</header>
 <section>
 <div class="container">
 	<div class="row clearfix">
