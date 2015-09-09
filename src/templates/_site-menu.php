@@ -6,7 +6,7 @@
     <nav>
       <ul>
         <li><a href="">О Компании</a></li>
-        <li><a href="?catalog">Каталог</a></li>
+        <li><a href="?page=catalog">Каталог</a></li>
         <li><a href="">Доставка и оплата</a></li>
         <li><a href="">Контакты</a></li>
       </ul>
